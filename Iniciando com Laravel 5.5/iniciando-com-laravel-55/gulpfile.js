@@ -16,37 +16,36 @@ const imagemin  = require('gulp-imagemin');
  */
 const paths = {
     styles: [
-        'dev/styles/scss/*.sass',
-         'dev/styles/scss/*.scss'
+        'resources/assets/sass/*.sass',
+         //'dev/styles/scss/*.scss'
     ],
-    scripts: {
-        js: [
-            './dev/js/script.js',
-            'dev/js/*.js'
-        ],
-        angular: [
-            './dev/app/app.js',
-            './dev/app/controllers.js',
-            './node_modules/angular/angular.min.js',
-        ],
-
-        dependencies:[
-            './node_modules/jquery/dist/jquery.min.js',
-        ]
-    },
-    images:[
-        './dev/imagens/*'
-    ]
+    // scripts: {
+    //     js: [
+    //         './dev/js/script.js',
+    //         'dev/js/*.js'
+    //     ],
+    //     angular: [
+    //         './dev/app/app.js',
+    //         './dev/app/controllers.js',
+    //         './node_modules/angular/angular.min.js',
+    //     ],
+    //     dependencies:[
+    //         './node_modules/jquery/dist/jquery.min.js',
+    //     ]
+    // },
+    // images:[
+    //     './dev/imagens/*'
+    // ]
 };
     gulp.task('default', ['styles', 'dependencies', 'js', 'angular']);
 
     gulp.task('styles', function () {
     return gulp.src(paths.styles)
-        .pipe(sass({includePaths: ['./dev/styles/scss'], errLogToConsole: true })) // Gulp irá rodar o sass incluindo os caminhos da pasta /scss como import
+        .pipe(sass({includePaths: ['resources/assets/sass/*.sass'], errLogToConsole: true })) // Gulp irá rodar o sass incluindo os caminhos da pasta /scss como import
         .pipe(sass.sync({outputStyle: 'compressed', errLogToConsole: true}))
         .pipe(concat('style.css'))  // Irá concatenar os arquivos e gerar um arquivo style.css
         .pipe(minifyCSS())          // Irá minificar o css assim que compilado
-        .pipe(gulp.dest('./dist/css/'));
+        .pipe(gulp.dest('public/css/'));
     });
    
     gulp.task('js', () => {
@@ -76,6 +75,6 @@ const paths = {
  
     gulp.task('watch', () => {
         gulp.watch(paths.styles, ['styles']);
-        gulp.watch(paths.scripts.js, ['js']);
-        gulp.watch(paths.scripts.angular,['angular']);
+        //gulp.watch(paths.scripts.js, ['js']);
+        //gulp.watch(paths.scripts.angular,['angular']);
     });

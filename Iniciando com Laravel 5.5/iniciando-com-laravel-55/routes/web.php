@@ -12,11 +12,21 @@
 */
 use \Illuminate\Http\Request;
 
+// MVC - Model - View - Controller
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //helper
 });
 
-Route::get('/cliente', function () {
+Route::get('/cliente/cadastrar', function () {
+    $nome = "Breno Teodoro";
+    $variavel1 = "Valor1";
+
+     return view('cliente.cadastrar',compact('nome', 'variavel1'));
+});
+
+/*
+ Route::get('/cliente', function () {
     //csrf--token
     $csrfToken = csrf_token();
     $html = <<<HTML
@@ -39,6 +49,7 @@ Route::post('/cliente/cadastrar', function (Request $request) {
 
     echo (" name2 ").($request->name);
 });
+ */
 /*Route::get('/cliente', function () {
     echo "Hello World";
 });
