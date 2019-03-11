@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>Document</title>
+    <title>Blade Template</title>
 </head>
 <body>
 Hello World! <br>
-<?php echo $nome; ?>
+{{$nome}}
 <br>
-<?php echo $variavel1; ?>
+{{$variavel1}}
 </body>
 </html>

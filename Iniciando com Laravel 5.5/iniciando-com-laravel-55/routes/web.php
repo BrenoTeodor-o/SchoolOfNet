@@ -18,12 +18,21 @@ Route::get('/', function () {
     return view('welcome'); //helper
 });
 
+Route::get('/blade', function () {
+    $nome = "Breno Teodoro";
+    $variavel1 = "Valor1";
+    return view('test')
+    ->with('nome', $nome)
+    ->with('variavel1', $variavel1);
+});
+
 Route::get('/cliente/cadastrar', function () {
     $nome = "Breno Teodoro";
     $variavel1 = "Valor1";
 
      return view('cliente.cadastrar',compact('nome', 'variavel1'));
 });
+
 
 /*
  Route::get('/cliente', function () {
@@ -49,8 +58,8 @@ Route::post('/cliente/cadastrar', function (Request $request) {
 
     echo (" name2 ").($request->name);
 });
- */
-/*Route::get('/cliente', function () {
+
+Route::get('/cliente', function () {
     echo "Hello World";
 });
 
@@ -68,7 +77,7 @@ Route::get('/fornecedor/{name}/{id?}', function ($name,$id = NULL) {
     }
     return;
 });
-*/
+ */
 
 /**
  * CoC - Convention over Configuration 
