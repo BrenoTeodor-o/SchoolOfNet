@@ -15,7 +15,11 @@ Hello World
 <br>
 {{$variavel1}}
 <br>
-<?php echo "php echo = $nome";?> <br>
-<?php echo "php echo = $variavel1";?>
+concatenação = 
+{{$variavel1.$nome}}
+<br>
+concatenação dos valores com espaço = 
+{{$variavel1.' '.$nome}}
+<br>
 </body>
 </html>
