@@ -22,6 +22,6 @@ class ClientesController extends Controller
     }
     public function editar(){
         // através dos Controllers nós vamos organizando a nossa aplicação!
-
+        
     }
 }
