@@ -8,9 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-Hello World! <br>
-<?php echo $nome; ?>
-<br>
-<?php echo $variavel1; ?>
+
 </body>
 </html>

@@ -21,5 +21,12 @@ concatenação =
 concatenação dos valores com espaço = 
 {{$variavel1.' '.$nome}}
 <br>
+{{2 + 2}}
+<br>
+{{isset($test)?$test:"outro valor"}}
+<br>
+{{$test??"outro valor"}}
+<br>
+<h1>{{"School of Net"}}</h1>
 </body>
 </html>

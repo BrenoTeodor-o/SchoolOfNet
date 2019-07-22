@@ -13,9 +13,29 @@
 use \Illuminate\Http\Request;
 
 // MVC - Model - View - Controller
+// StudlyCaps
 
 Route::get('/', function () {
     return view('welcome'); //helper
+});
+
+Route::get('controller/cliente/cadastrar', 'ClientesController@cadastrar');
+
+Route::group(['prefix' => '/Admin'], function () {
+    Route::group(['prefix' => '/cliente'], function () {
+        Route::get('controller/cliente/cadastrar', 'ClientesController@cadastrar');
+        var_dump($_ENV);
+    });    
+});
+
+Route::get('/for-if/{value}', function($value){
+    return view('for-if')
+        ->with('value', $value)
+        ->with('myArray', [
+            'chave1' => 'valor1',
+            'chave2' => 'valor2',
+            'chave3' => 'valor3',
+        ]);
 });
 
 Route::get('/blade', function () {
@@ -23,7 +43,8 @@ Route::get('/blade', function () {
     $variavel1 = "Valor1";
     return view('test')
     ->with('nome', $nome)
-    ->with('variavel1', $variavel1);
+    ->with('variavel1', $variavel1)
+    ->with('test', 'Tenho valor');
 });
 
 Route::get('/cliente/cadastrar', function () {
